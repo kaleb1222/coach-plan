@@ -1,0 +1,113 @@
+name: Update Drills & Push OTA
+
+on:
+  repository_dispatch:
+    types: [update-drills]
+
+  # Also allow manual trigger from GitHub UI for testing
+  workflow_dispatch:
+    inputs:
+      drill_text:
+        description: "Raw drill text to parse"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  update-drills:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Write the drill text to a temp file safely using environment variables
+      - name: Save drill text
+        env:
+          DRILL_TEXT_DISPATCH: ${{ github.event.client_payload.drill_text }}
+          DRILL_TEXT_MANUAL: ${{ inputs.drill_text }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = "repository_dispatch" ]; then
+            printf '%s' "$DRILL_TEXT_DISPATCH" > /tmp/drill_input.txt
+          else
+            printf '%s' "$DRILL_TEXT_MANUAL" > /tmp/drill_input.txt
+          fi
+
+          echo "Drill text saved ($(wc -c < /tmp/drill_input.txt) bytes)"
+
+      - name: Generate drills.js via Claude API
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-drills.js /tmp/drill_input.txt src/drills.js
+
+      - name: Validate generated drills.js
+        run: |
+          echo "Validating drills.js syntax..."
+          node --input-type=module -e "
+            import { WEEK_LABEL, WARMUP, MON_TUE, WED_THU } from './src/drills.js';
+            if (!WEEK_LABEL || !WARMUP?.drills?.length || !MON_TUE?.drills?.length || !WED_THU?.drills?.length) {
+              console.error('drills.js is missing required exports or has empty drill arrays');
+              process.exit(1);
+            }
+            const total = WARMUP.drills.length + MON_TUE.drills.length + WED_THU.drills.length;
+            console.log('✅ drills.js valid — ' + WEEK_LABEL + ' — ' + total + ' drills');
+          "
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet src/drills.js; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes to drills.js"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "drills.js has been updated"
+            git diff --stat src/drills.js
+          fi
+
+      - name: Commit & push updated drills.js
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "Coach's Plan Bot"
+          git config user.email "bot@coachplan.app"
+          git add src/drills.js
+          git commit -m "Update drills — $(date +'%B %d, %Y')"
+          git push
+
+      - name: Setup Expo
+        if: steps.changes.outputs.changed == 'true'
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Publish EAS Update
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          eas update --branch production --message "Weekly drill update — $(date +'%B %d, %Y')" --non-interactive
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.changes.outputs.changed }}" = "true" ]; then
+            echo "## ✅ Pipeline Complete" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "- drills.js updated and committed" >> $GITHUB_STEP_SUMMARY
+            echo "- EAS Update published to \`production\` branch" >> $GITHUB_STEP_SUMMARY
+            echo "- App will update on next launch" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## ℹ️ No Changes" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "The generated drills.js was identical to the existing file." >> $GITHUB_STEP_SUMMARY
+          fi
