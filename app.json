@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "Coach's Plan",
-    "slug": "coach-plan",
+    "slug": "kaleb",
+    "owner": "kvbay",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.yourname.coachplan",
+      "bundleIdentifier": "com.kvbay.coachplan",
       "buildNumber": "1"
     },
     "extra": {
@@ -23,3 +24,4 @@
     }
   }
 }
+```
