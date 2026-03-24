@@ -15,7 +15,16 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.kvbay.coachplan",
-      "buildNumber": "1"
+      "buildNumber": "3",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/bc99410b-903a-4d23-b37e-10695460dab7"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     },
     "extra": {
       "eas": {

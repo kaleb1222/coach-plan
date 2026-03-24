@@ -15,16 +15,17 @@
     },
     "production": {
       "ios": {
-        "distribution": "store"
+        "distribution": "store",
+        "image": "macos-sonoma-14.6-xcode-16.0"
       }
     }
   },
   "submit": {
     "production": {
       "ios": {
-        "appleId": "YOUR_APPLE_ID@email.com",
-        "ascAppId": "YOUR_APP_STORE_CONNECT_APP_ID",
-        "appleTeamId": "YOUR_TEAM_ID"
+        "appleId": "kalebbays24@gmail.com",
+        "ascAppId": "6761033948",
+        "appleTeamId": "XDYJM4HKN4"
       }
     }
   }
