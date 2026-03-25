@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import {
-  View, Text, TouchableOpacity, Animated, StyleSheet, useColorScheme,
+  View, Text, TouchableOpacity, Animated, StyleSheet, useColorScheme, Linking,
 } from 'react-native';
 import * as Haptics from 'expo-haptics';
 
@@ -15,6 +15,11 @@ export default function DrillCard({ drill, index, accentColor, badgeBg, badgeTex
     const toValue = open ? 0 : 1;
     setOpen(!open);
     Animated.spring(anim, { toValue, useNativeDriver: false, tension: 80, friction: 10 }).start();
+  };
+
+  const openPdf = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    Linking.openURL(drill.pdfUrl);
   };
 
   const rotate = anim.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '90deg'] });
@@ -37,7 +42,7 @@ export default function DrillCard({ drill, index, accentColor, badgeBg, badgeTex
       {open && (
         <View style={styles.detail}>
           <Text style={[styles.detailText, { color: dark ? '#AEAEB2' : '#6C6C70' }]}>{drill.detail}</Text>
-          {drill.points.length > 0 && (
+          {drill.points && drill.points.length > 0 && (
             <View style={styles.points}>
               {drill.points.map((pt, i) => (
                 <View key={i} style={styles.pointRow}>
@@ -47,8 +52,15 @@ export default function DrillCard({ drill, index, accentColor, badgeBg, badgeTex
               ))}
             </View>
           )}
-          <View style={[styles.badge, { backgroundColor: badgeBg }]}>
-            <Text style={[styles.badgeText, { color: badgeText }]}>{drill.badge}</Text>
+          <View style={styles.badgeRow}>
+            <View style={[styles.badge, { backgroundColor: badgeBg }]}>
+              <Text style={[styles.badgeText, { color: badgeText }]}>{drill.badge}</Text>
+            </View>
+            {drill.pdfUrl && (
+              <TouchableOpacity onPress={openPdf} style={[styles.pdfBtn, { backgroundColor: badgeBg }]} activeOpacity={0.7}>
+                <Text style={[styles.pdfBtnText, { color: badgeText }]}>📄 View Diagram</Text>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       )}
@@ -90,12 +102,25 @@ const styles = StyleSheet.create({
   pointRow: { flexDirection: 'row', gap: 6, alignItems: 'flex-start' },
   dot: { fontSize: 16, lineHeight: 20, fontWeight: '700' },
   pointText: { fontSize: 13, lineHeight: 20, flex: 1 },
+  badgeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 10,
+    flexWrap: 'wrap',
+  },
   badge: {
     alignSelf: 'flex-start',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 20,
-    marginTop: 10,
   },
   badgeText: { fontSize: 11, fontWeight: '600', letterSpacing: 0.2 },
+  pdfBtn: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 20,
+  },
+  pdfBtnText: { fontSize: 11, fontWeight: '600', letterSpacing: 0.2 },
 });
