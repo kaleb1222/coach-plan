@@ -70,7 +70,10 @@ jobs:
           "
 
       - name: Pull latest (PDFs may have been pushed by Apps Script)
-        run: git pull --rebase origin main
+        run: |
+          git stash
+          git pull --rebase origin main
+          git stash pop || true
 
       - name: Check for changes
         id: changes
