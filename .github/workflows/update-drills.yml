@@ -4,7 +4,6 @@ on:
   repository_dispatch:
     types: [update-drills]
 
-  # Also allow manual trigger from GitHub UI for testing
   workflow_dispatch:
     inputs:
       drill_text:
@@ -22,6 +21,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,11 +32,11 @@ jobs:
       - name: Install dependencies
         run: npm install --ignore-scripts
 
-      # Write the drill text to a temp file safely using environment variables
-      - name: Save drill text
+      - name: Save drill text and PDF mapping
         env:
           DRILL_TEXT_DISPATCH: ${{ github.event.client_payload.drill_text }}
           DRILL_TEXT_MANUAL: ${{ inputs.drill_text }}
+          PDF_MAPPING: ${{ toJSON(github.event.client_payload.pdf_mapping) }}
           EVENT_NAME: ${{ github.event_name }}
         run: |
           if [ "$EVENT_NAME" = "repository_dispatch" ]; then
@@ -44,12 +45,16 @@ jobs:
             printf '%s' "$DRILL_TEXT_MANUAL" > /tmp/drill_input.txt
           fi
 
-          echo "Drill text saved ($(wc -c < /tmp/drill_input.txt) bytes)"
+          # Save PDF mapping (may be empty object for manual triggers)
+          printf '%s' "$PDF_MAPPING" > /tmp/pdf_mapping.json
+
+          echo "Drill text: $(wc -c < /tmp/drill_input.txt) bytes"
+          echo "PDF mapping: $(cat /tmp/pdf_mapping.json | python3 -c 'import json,sys; d=json.load(sys.stdin) if sys.stdin.read() != "null" else {}; print(len(d), "PDFs")' 2>/dev/null || echo 'none')"
 
       - name: Generate drills.js via Claude API
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/generate-drills.js /tmp/drill_input.txt src/drills.js
+        run: node scripts/generate-drills.js /tmp/drill_input.txt src/drills.js /tmp/pdf_mapping.json
 
       - name: Validate generated drills.js
         run: |
@@ -63,6 +68,9 @@ jobs:
             const total = WARMUP.drills.length + MON_TUE.drills.length + WED_THU.drills.length;
             console.log('✅ drills.js valid — ' + WEEK_LABEL + ' — ' + total + ' drills');
           "
+
+      - name: Pull latest (PDFs may have been pushed by Apps Script)
+        run: git pull --rebase origin main
 
       - name: Check for changes
         id: changes
