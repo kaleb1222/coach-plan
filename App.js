@@ -1,11 +1,71 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View, Text, TouchableOpacity, StyleSheet, useColorScheme,
   SafeAreaView, Animated, Dimensions,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import * as Updates from 'expo-updates';
 import SessionScreen from './src/SessionScreen';
 import { WARMUP, MON_TUE, WED_THU, WEEK_LABEL } from './src/drills';
+
+function UpdateScreen() {
+  const [status, setStatus] = useState('checking');
+
+  useEffect(() => {
+    checkForUpdate();
+  }, []);
+
+  const checkForUpdate = async () => {
+    try {
+      if (!Updates.isEnabled) { setStatus('done'); return; }
+      setStatus('checking');
+      const update = await Updates.checkForUpdateAsync();
+      if (update.isAvailable) {
+        setStatus('downloading');
+        await Updates.fetchUpdateAsync();
+        setStatus('ready');
+        setTimeout(() => Updates.reloadAsync(), 1500);
+      } else {
+        setStatus('done');
+      }
+    } catch (e) {
+      setStatus('done');
+    }
+  };
+
+  if (status === 'done') return null;
+
+  return (
+    <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 999, backgroundColor: '#000', justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 28, fontWeight: '700', color: '#1D9E75', marginBottom: 30 }}>Coach's Plan</Text>
+      {status === 'checking' && (
+        <>
+          <Text style={{ fontSize: 16, fontWeight: '600', color: '#8E8E93' }}>Checking for updates...</Text>
+          <View style={{ width: 200, height: 4, backgroundColor: '#1C1C1E', borderRadius: 2, marginTop: 20, overflow: 'hidden' }}>
+            <View style={{ width: '30%', height: '100%', backgroundColor: '#1D9E75', borderRadius: 2 }} />
+          </View>
+        </>
+      )}
+      {status === 'downloading' && (
+        <>
+          <Text style={{ fontSize: 16, fontWeight: '600', color: '#8E8E93' }}>Downloading update...</Text>
+          <View style={{ width: 200, height: 4, backgroundColor: '#1C1C1E', borderRadius: 2, marginTop: 20, overflow: 'hidden' }}>
+            <View style={{ width: '70%', height: '100%', backgroundColor: '#1D9E75', borderRadius: 2 }} />
+          </View>
+        </>
+      )}
+      {status === 'ready' && (
+        <>
+          <Text style={{ fontSize: 16, fontWeight: '600', color: '#1D9E75' }}>Update ready</Text>
+          <Text style={{ fontSize: 14, color: '#8E8E93', marginTop: 8 }}>Restarting...</Text>
+          <View style={{ width: 200, height: 4, backgroundColor: '#1C1C1E', borderRadius: 2, marginTop: 20, overflow: 'hidden' }}>
+            <View style={{ width: '100%', height: '100%', backgroundColor: '#1D9E75', borderRadius: 2 }} />
+          </View>
+        </>
+      )}
+    </View>
+  );
+}
 
 const TABS = [
   { key: 'warmup', label: 'Warmup', session: WARMUP },
@@ -58,6 +118,7 @@ export default function App() {
   return (
     <SafeAreaView style={[styles.root, { backgroundColor: dark ? '#000' : '#F2F2F7' }]}>
       <StatusBar style={dark ? 'light' : 'dark'} />
+      <UpdateScreen />
 
       <View style={[styles.header, {
         backgroundColor: dark ? '#1C1C1E' : '#fff',
