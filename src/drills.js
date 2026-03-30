@@ -13,17 +13,17 @@ export const WARMUP = {
     {
       id: 'w1',
       name: 'Dynamic Movement Circuit',
-      summary: 'Lateral bounds · carioca · hip openers · inch worms',
-      detail: 'Set up cones 15 yards apart. Start with lateral bounds - explosive jumps side to side with soft landings. Next, carioca (grapevine) facing forward while moving sideways, crossing one foot over and behind the other. Then hip openers - high knee lifts while rotating knee out to open hip. Finish with inch worms - walk hands out to plank, walk feet to hands, repeat.',
+      summary: 'Lateral bounds · carioca · bear crawls · inch worms',
+      detail: 'Set up 20-yard line. Players perform lateral bounds (10 hops each direction), carioca (side-stepping with crossover steps), bear crawls (10 yards), and inch worms (walk hands out to plank, walk feet to hands). Complete 2 rounds with 30-second rest between exercises.',
       points: [],
       badge: 'Injury prevention',
       pdfUrl: null,
     },
     {
       id: 'w2',
-      name: 'Hospital Tag (with ball)',
-      summary: 'Dribble around grid · if tagged hold body part · 3 tags = hospital',
-      detail: 'All players dribble in 20x20 yard grid. 2-3 players are "doctors" without balls who try to tag dribblers. When tagged, player must hold that body part (shoulder, knee, elbow) with one hand while continuing to dribble. If tagged 3 times, player goes to "hospital" (outside grid) and does 5 toe taps before returning. Switch doctors every 2 minutes.',
+      name: 'Traffic Light Dribbling',
+      summary: 'Dribble freely · follow coach commands · freeze on red',
+      detail: 'Players dribble balls freely in 20x20 yard area. Coach calls out commands: GREEN (dribble fast), YELLOW (dribble slow), RED (freeze with foot on ball), REVERSE (dribble backwards). Add fun variations like \'Construction Zone\' (hop over ball) or \'Speed Bump\' (toe taps). Play for 4-5 minutes.',
       points: [],
       badge: 'Ball mastery',
       pdfUrl: null,
@@ -33,89 +33,89 @@ export const WARMUP = {
 
 export const MON_TUE = {
   title: 'Monday / Tuesday',
-  subtitle: 'Fundamental dribbling skills · Beat defenders',
+  subtitle: 'Dribbling Microcycle 2 - Fundamental Skills',
   color: '#185FA5',
   drills: [
     {
       id: 'm1',
-      name: 'Rehearse Skill Moves',
-      summary: 'Practice hook turn · drag-back · pull-push · pull-cut moves',
-      detail: 'Rehearse each of the moves in an open area. Focus on side-step, scissors, step-over, and add four new skill moves: hook turn, drag-back, pull-push, and pull-cut. Players repeat each move 10 times. Use correct technique: small soft touches with shoe laces, quick feet and small steps.',
-      points: ['Take small soft touches with shoe laces', 'Quick feet and small steps for quick reactions', 'Make defender react to you', 'Change direction and speed to escape pressure'],
-      badge: 'Moves training',
-      pdfUrl: null,
+      name: 'Rehearse each of the moves in an open area',
+      summary: 'Practice 8 fundamental skill moves',
+      detail: 'Rehearse side-step, scissors, step-over, hook turn, drag-back, pull-push, pull-cut, and Maradona in an open area. Players repeat each move 10 times. Coach demonstrates or plays videos. Focus on correct technique.',
+      points: ['Demonstrate each move correctly', 'Players repeat 10 times', 'Use correct technique', 'Master mechanics for game situations'],
+      badge: 'Ball mastery',
+      pdfUrl: null
     },
     {
       id: 'm2',
-      name: '1v1 End Line Game',
-      summary: 'Beat defender · dribble past end line to score',
-      detail: '10x20 yard area. Players start at opposite corners. Blue passes to red, then 1v1 until ball goes out. Score by dribbling with control past opposite end line. Defender wins by taking ball and scoring or forcing attacker out of bounds.',
-      points: ['Accurate pass to feet', 'Good first touch - soft and short', 'Start faking immediately', 'Fake one way, change direction and speed'],
-      badge: '1v1 dribbling',
-      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/1v1-End-Line-Game.pdf',
+      name: 'Dynamic Stretching',
+      summary: 'Warm-up with movement exercises',
+      detail: 'Dynamic warm-up including skipping lap, high knees, butt-kickers, carioca, forward lunge, side lunge, side squat, knee to chest, airplane, toe touch, and high kick.',
+      points: [],
+      badge: 'Warm-up',
+      pdfUrl: null
     },
     {
       id: 'm3',
-      name: 'Dribbling Gauntlet',
-      summary: 'Beat three defenders in sequence · score at end line',
-      detail: '10x36 yard area divided into three 10x12 sections. Three defenders each in their square. Attacker must dribble through and beat each defender to score at end line. Defenders start at back line of their square and cannot leave their area.',
-      points: ['Dribble with shoelaces when taking on defenders', 'Make your move early, out of defender\'s reach', 'Change direction and accelerate away', 'Attack spaces behind defender with speed'],
+      name: '1v1 End Line Game',
+      summary: 'Beat defender to score · Practice moves under pressure',
+      detail: '10X20 yard area. Players pass and play 1v1. Score by dribbling past opposite end line. Defender wins by taking ball and scoring or forcing attacker out of bounds.',
+      points: ['Accurate pass to feet', 'Good first touch', 'Start fakes immediately', 'Fake one way, change direction, change speed'],
       badge: '1v1 dribbling',
-      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Dribbling-Gauntlet.pdf',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/1v1-End-Line-Game.pdf'
     },
     {
       id: 'm4',
-      name: '2V2 Game With Large Goals',
-      summary: 'Team with ball can add extra player · pass teammate in',
-      detail: '2v2 game with large goals. Special rule: the team with the ball can have an extra player (pass a teammate in). Focus on quick combinations, give-and-gos, overlaps, and through balls. Play is continuous.',
-      points: ['Pass early when you have advantage', 'Shoot early when opportunity arises', 'Quick transitions to defense and offense', 'Take what the defender gives you'],
-      badge: 'Scrimmage',
-      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2V2-Game.pdf',
-    },
-  ],
+      name: 'Dribbling Gauntlet',
+      summary: 'Beat three defenders in sequence',
+      detail: '10X36 yard area divided into three sections. One attacker dribbles through, beating each defender in their square. Score by dribbling past end line. Defenders stay in their squares.',
+      points: ['Dribble with shoelaces', 'Make move early', 'Change direction and accelerate', 'Attack spaces behind defender'],
+      badge: 'Moves training',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Dribbling-Gauntlet.pdf'
+    }
+  ]
 };
 
 export const WED_THU = {
   title: 'Wednesday / Thursday',
-  subtitle: 'Fundamental dribbling skills · Beat defenders',
+  subtitle: 'Dribbling Microcycle 2 - Fundamental Skills',
   color: '#534AB7',
   drills: [
     {
       id: 'wt1',
-      name: 'Rehearse Skill Moves',
-      summary: 'Practice hook turn · drag-back · pull-push · pull-cut moves',
-      detail: 'Rehearse each of the moves in an open area. Focus on side-step, scissors, step-over, and add four new skill moves: hook turn, drag-back, pull-push, and pull-cut. Players repeat each move 10 times. Use correct technique: small soft touches with shoe laces, quick feet and small steps.',
-      points: ['Take small soft touches with shoe laces', 'Quick feet and small steps for quick reactions', 'Make defender react to you', 'Change direction and speed to escape pressure'],
-      badge: 'Moves training',
-      pdfUrl: null,
+      name: 'Rehearse each of the moves in an open area',
+      summary: 'Practice 8 fundamental skill moves',
+      detail: 'Rehearse side-step, scissors, step-over, hook turn, drag-back, pull-push, pull-cut, and Maradona in an open area. Players repeat each move 10 times. Coach demonstrates or plays videos. Focus on correct technique.',
+      points: ['Demonstrate each move correctly', 'Players repeat 10 times', 'Use correct technique', 'Master mechanics for game situations'],
+      badge: 'Ball mastery',
+      pdfUrl: null
     },
     {
       id: 'wt2',
-      name: '1v1 End Line Game',
-      summary: 'Beat defender · dribble past end line to score',
-      detail: '10x20 yard area. Players start at opposite corners. Blue passes to red, then 1v1 until ball goes out. Score by dribbling with control past opposite end line. Defender wins by taking ball and scoring or forcing attacker out of bounds.',
-      points: ['Accurate pass to feet', 'Good first touch - soft and short', 'Start faking immediately', 'Fake one way, change direction and speed'],
-      badge: '1v1 dribbling',
-      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/1v1-End-Line-Game.pdf',
+      name: 'Dynamic Stretching',
+      summary: 'Warm-up with movement exercises',
+      detail: 'Dynamic warm-up including skipping lap, high knees, butt-kickers, carioca, forward lunge, side lunge, side squat, knee to chest, airplane, toe touch, and high kick.',
+      points: [],
+      badge: 'Warm-up',
+      pdfUrl: null
     },
     {
       id: 'wt3',
-      name: 'Dribbling Gauntlet',
-      summary: 'Beat three defenders in sequence · score at end line',
-      detail: '10x36 yard area divided into three 10x12 sections. Three defenders each in their square. Attacker must dribble through and beat each defender to score at end line. Defenders start at back line of their square and cannot leave their area.',
-      points: ['Dribble with shoelaces when taking on defenders', 'Make your move early, out of defender\'s reach', 'Change direction and accelerate away', 'Attack spaces behind defender with speed'],
+      name: '1v1 End Line Game',
+      summary: 'Beat defender to score · Practice moves under pressure',
+      detail: '10X20 yard area. Players pass and play 1v1. Score by dribbling past opposite end line. Defender wins by taking ball and scoring or forcing attacker out of bounds.',
+      points: ['Accurate pass to feet', 'Good first touch', 'Start fakes immediately', 'Fake one way, change direction, change speed'],
       badge: '1v1 dribbling',
-      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Dribbling-Gauntlet.pdf',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/1v1-End-Line-Game.pdf'
     },
     {
       id: 'wt4',
-      name: '2V2 Game',
-      summary: 'Use poles for goals · play against other teams',
-      detail: '2v2 game using poles to make goals. Teams should play against one of the other teams for competition. Focus on dribbling to escape pressure, create time and space for safe passes or shots. Emphasize quick combinations and transitions.',
-      points: ['Dribble diagonally to create time and space', 'Look to combine with give-and-gos and overlaps', 'Be aware what defender is taking away', 'Quick transitions between attack and defense'],
-      badge: 'Scrimmage',
-      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2V2-Game.pdf',
-    },
-  ],
+      name: 'Dribbling Gauntlet',
+      summary: 'Beat three defenders in sequence',
+      detail: '10X36 yard area divided into three sections. One attacker dribbles through, beating each defender in their square. Score by dribbling past end line. Defenders stay in their squares.',
+      points: ['Dribble with shoelaces', 'Make move early', 'Change direction and accelerate', 'Attack spaces behind defender'],
+      badge: 'Moves training',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Dribbling-Gauntlet.pdf'
+    }
+  ]
 };
 
