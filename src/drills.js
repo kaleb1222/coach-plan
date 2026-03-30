@@ -13,17 +13,28 @@ export const WARMUP = {
     {
       id: 'w1',
       name: 'Dynamic Movement Circuit',
+<<<<<<< Updated upstream
       summary: 'Frankenstein walks · lateral bounds · inch worms',
       detail: 'Set up 20-yard line. Players perform Frankenstein walks (straight leg kicks while walking), lateral bounds (explosive side-to-side jumps), and inch worms (walk hands out to plank, walk feet to hands). Complete 2 rounds with 30 seconds rest between exercises.',
+=======
+      summary: 'Bear crawls · inch worms · lateral bounds · carioca',
+      detail: 'Set up 20-yard line. Players perform: (1) Bear crawls forward 10 yards, walk back, (2) Inch worms forward 10 yards (hands walk out to plank, feet walk up to hands), walk back, (3) Lateral bounds side to side across 15 yards, (4) Carioca crossover steps both directions. Complete 2 rounds with 30-second rest between exercises.',
+>>>>>>> Stashed changes
       points: [],
       badge: 'Injury prevention',
       pdfUrl: null,
     },
     {
       id: 'w2',
+<<<<<<< Updated upstream
       name: 'Traffic Light Dribbling',
       summary: 'Dribble freely · follow color commands · keep ball close',
       detail: 'Players dribble freely in 20x20 grid with their ball. Coach calls out colors: GREEN = dribble fast, YELLOW = slow dribbling, RED = stop and put foot on ball. Add variations like BLUE = sit on ball, PURPLE = juggle. Keep players moving and listening while maintaining ball control.',
+=======
+      name: 'Hospital Tag (with ball)',
+      summary: 'Dribble and avoid taggers · hold injured body parts',
+      detail: 'All players dribble in 25x25 yard area. Select 2-3 players as doctors (no ball). When a player is tagged by doctor, they must hold that body part (shoulder, knee, ankle) with one hand while continuing to dribble with the other hand. If tagged again on different body part, hold both spots. Third tag means player must go to hospital (outside grid) for 10 jumping jacks before returning. Switch doctors every 90 seconds.',
+>>>>>>> Stashed changes
       points: [],
       badge: 'Ball mastery',
       pdfUrl: null,
@@ -33,20 +44,31 @@ export const WARMUP = {
 
 export const MON_TUE = {
   title: 'Monday / Tuesday',
+<<<<<<< Updated upstream
   subtitle: 'Dribbling Microcycle 2 · Fundamental Skills',
+=======
+  subtitle: 'Fundamental dribbling skills · Beat defenders · Escape pressure',
+>>>>>>> Stashed changes
   color: '#185FA5',
   drills: [
     {
       id: 'm1',
       name: 'Rehearse each of the moves in an open area',
+<<<<<<< Updated upstream
       summary: 'Practice fundamental moves · skill development',
       detail: 'Rehearse each of the moves in an open area (see video links below). Players practice side-step, scissors, step-over, hook turn, drag-back, pull-push, and pull-cut moves.',
       points: [],
+=======
+      summary: 'Practice hook turn · drag-back · pull-push · pull-cut moves',
+      detail: 'Rehearse the side-step, scissors and step-over, and add four new skill moves: hook turn, drag-back, pull-push, and pull-cut. See video links. Hook turn: Using sole of foot on top of ball, turn 180 degrees. Pull-push: Fake shot, pull ball back with sole, turn 90 degrees, push away with inside foot. Pull-cut: Fake shot, pull ball back behind standing leg with sole, cut 90 degrees with inside foot. Scissors: Leap to side moving foot in front of ball, push ball opposite direction with outside of other foot.',
+      points: ['Use correct technique with shoe laces', 'Quick feet and small steps', 'Make defender react to you', 'Change direction and speed'],
+>>>>>>> Stashed changes
       badge: 'Moves training',
       pdfUrl: null,
     },
     {
       id: 'm2',
+<<<<<<< Updated upstream
       name: 'Dynamic Stretching',
       summary: 'Warm-up preparation · movement quality',
       detail: 'Dynamic stretching including skipping lap, high knees, butt-kickers, carioca, forward lunge, side lunge, side squat, knee to chest, airplane, toe touch, and high kick.',
@@ -71,26 +93,63 @@ export const MON_TUE = {
       points: [],
       badge: '1v1 dribbling',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Dribbling-Gauntlet.pdf',
+=======
+      name: '1v1 End Line Game',
+      summary: 'Dribble past end line to score · Practice moves vs defender',
+      detail: '10x20 yard area. Players pass to start 1v1 battle. Score by dribbling with control past the opposite end line. Defender wins by forcing attacker out of bounds or winning ball and scoring. Must perform moves to beat defender.',
+      points: ['Accurate pass to feet', 'Good first touch', 'Start fakes immediately', 'Approach with control doing fakes', 'Change direction and speed'],
+      badge: '1v1 dribbling',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/1v1-End-Line-Game.pdf',
+    },
+    {
+      id: 'm3',
+      name: 'Dribbling Gauntlet',
+      summary: 'Beat three defenders in sequence · Attack spaces with speed',
+      detail: '10x36 yard area divided into three sections. One attacker dribbles through and scores by dribbling past last end line. Must beat each defender in their respective squares. Defenders start at back line and cannot leave their square.',
+      points: ['Dribble with shoelaces', 'Make move early out of defender\'s reach', 'Change direction and accelerate', 'Attack spaces behind defender with speed'],
+      badge: '1v1 dribbling',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Dribbling-Gauntlet.pdf',
+    },
+    {
+      id: 'm4',
+      name: '2V2 Game With Large Goals',
+      summary: 'Team with ball can add extra player · Pass teammate in',
+      detail: '2v2 game with large goals. The team with the ball can have an extra player (pass a teammate in). Focus on dribbling to escape pressure and create time and space for passing or shooting.',
+      points: ['Dribble diagonally to create space', 'Pass early when appropriate', 'Use extra player advantage', 'Quick transitions'],
+      badge: 'Scrimmage',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2V2-Game.pdf',
+>>>>>>> Stashed changes
     },
   ],
 };
 
 export const WED_THU = {
   title: 'Wednesday / Thursday',
+<<<<<<< Updated upstream
   subtitle: 'Dribbling Microcycle 2 · Fundamental Skills',
+=======
+  subtitle: 'Fundamental dribbling skills · Beat defenders · Escape pressure',
+>>>>>>> Stashed changes
   color: '#534AB7',
   drills: [
     {
       id: 'wt1',
       name: 'Rehearse each of the moves in an open area',
+<<<<<<< Updated upstream
       summary: 'Practice fundamental moves · skill development',
       detail: 'Rehearse each of the moves in an open area (see video links below). Players practice side-step, scissors, step-over, hook turn, drag-back, pull-push, and pull-cut moves.',
       points: [],
+=======
+      summary: 'Practice hook turn · drag-back · pull-push · pull-cut moves',
+      detail: 'Rehearse the side-step, scissors and step-over, and add four new skill moves: hook turn, drag-back, pull-push, and pull-cut. See video links. Hook turn: Using sole of foot on top of ball, turn 180 degrees. Pull-push: Fake shot, pull ball back with sole, turn 90 degrees, push away with inside foot. Pull-cut: Fake shot, pull ball back behind standing leg with sole, cut 90 degrees with inside foot. Scissors: Leap to side moving foot in front of ball, push ball opposite direction with outside of other foot.',
+      points: ['Use correct technique with shoe laces', 'Quick feet and small steps', 'Make defender react to you', 'Change direction and speed'],
+>>>>>>> Stashed changes
       badge: 'Moves training',
       pdfUrl: null,
     },
     {
       id: 'wt2',
+<<<<<<< Updated upstream
       name: 'Dynamic Stretching',
       summary: 'Warm-up preparation · movement quality',
       detail: 'Dynamic stretching including skipping lap, high knees, butt-kickers, carioca, forward lunge, side lunge, side squat, knee to chest, airplane, toe touch, and high kick.',
@@ -115,6 +174,32 @@ export const WED_THU = {
       points: [],
       badge: '1v1 dribbling',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Dribbling-Gauntlet.pdf',
+=======
+      name: '1v1 End Line Game',
+      summary: 'Dribble past end line to score · Practice moves vs defender',
+      detail: '10x20 yard area. Players pass to start 1v1 battle. Score by dribbling with control past the opposite end line. Defender wins by forcing attacker out of bounds or winning ball and scoring. Must perform moves to beat defender.',
+      points: ['Accurate pass to feet', 'Good first touch', 'Start fakes immediately', 'Approach with control doing fakes', 'Change direction and speed'],
+      badge: '1v1 dribbling',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/1v1-End-Line-Game.pdf',
+    },
+    {
+      id: 'wt3',
+      name: 'Dribbling Gauntlet',
+      summary: 'Beat three defenders in sequence · Attack spaces with speed',
+      detail: '10x36 yard area divided into three sections. One attacker dribbles through and scores by dribbling past last end line. Must beat each defender in their respective squares. Defenders start at back line and cannot leave their square.',
+      points: ['Dribble with shoelaces', 'Make move early out of defender\'s reach', 'Change direction and accelerate', 'Attack spaces behind defender with speed'],
+      badge: '1v1 dribbling',
+      pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Dribbling-Gauntlet.pdf',
+    },
+    {
+      id: 'wt4',
+      name: '2V2 Game (use poles to make goals)',
+      summary: 'Team vs team competition · 30 minutes duration',
+      detail: '2v2 game using poles to make the goals. For this exercise your team should go against one of the other teams. Focus on applying dribbling skills in game context to escape pressure and create scoring opportunities.',
+      points: ['Apply learned moves in game situations', 'Beat defender 9 out of 10 times', 'Create time and space', 'Quick transitions'],
+      badge: 'Scrimmage',
+      pdfUrl: null,
+>>>>>>> Stashed changes
     },
   ],
 };
