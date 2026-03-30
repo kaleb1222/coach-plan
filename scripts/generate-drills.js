@@ -36,10 +36,12 @@ if (drillText.length < 20) {
 let pdfMapping = {};
 if (pdfMappingPath && fs.existsSync(pdfMappingPath)) {
   try {
-    pdfMapping = JSON.parse(fs.readFileSync(pdfMappingPath, "utf-8"));
+    const parsed = JSON.parse(fs.readFileSync(pdfMappingPath, "utf-8"));
+    pdfMapping = parsed && typeof parsed === 'object' ? parsed : {};
     console.log(`Loaded ${Object.keys(pdfMapping).length} PDF mappings`);
   } catch (e) {
     console.warn("Could not parse PDF mapping file:", e.message);
+    pdfMapping = {};
   }
 }
 
