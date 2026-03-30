@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
-  View, Text, TouchableOpacity, StyleSheet, useColorScheme,
-  SafeAreaView, Animated, Dimensions, Linking,
+  View, Text, TouchableOpacity, ScrollView, StyleSheet, useColorScheme,
+  SafeAreaView, Animated, Dimensions,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Updates from 'expo-updates';
+import WebView from 'react-native-webview';
 import SessionScreen from './src/SessionScreen';
 import { MON_TUE, WED_THU, WEEK_LABEL } from './src/drills';
 
@@ -67,9 +68,35 @@ function UpdateScreen() {
   );
 }
 
+// In-app browser overlay
+function InAppBrowser({ url, onClose, dark }) {
+  return (
+    <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 100, backgroundColor: dark ? '#000' : '#fff' }}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: dark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}>
+          <Text style={{ fontSize: 13, color: dark ? '#8E8E93' : '#6C6C70', flex: 1 }} numberOfLines={1}>{url}</Text>
+          <TouchableOpacity onPress={onClose} style={{ paddingLeft: 16, paddingVertical: 4 }}>
+            <Text style={{ fontSize: 15, fontWeight: '600', color: '#1D9E75' }}>Done</Text>
+          </TouchableOpacity>
+        </View>
+        <WebView source={{ uri: url }} style={{ flex: 1 }} />
+      </SafeAreaView>
+    </View>
+  );
+}
+
+// Try to get PDF list from drills module
+let DRILL_PDFS = [];
+try {
+  const drillsModule = require('./src/drills');
+  if (drillsModule.DRILL_PDFS) DRILL_PDFS = drillsModule.DRILL_PDFS;
+} catch (e) {}
+
 const TABS = [
   { key: 'mon',    label: 'Mon/Tue', session: MON_TUE },
   { key: 'wed',    label: 'Wed/Thu', session: WED_THU },
+  { key: 'pdfs',   label: 'PDFs' },
+  { key: 'pm',     label: 'PlayMetrics' },
 ];
 
 function getWeekKey() {
@@ -104,9 +131,13 @@ export default function App() {
     setTimeout(() => setRefreshing(false), 2000);
   };
 
+  const [browserUrl, setBrowserUrl] = useState(null);
+
   const TAB_COLORS = {
     mon: '#185FA5',
     wed: '#534AB7',
+    pdfs: '#D4842A',
+    pm: '#1D9E75',
   };
 
   const activeColor = TAB_COLORS[TABS[activeTab].key];
@@ -122,11 +153,13 @@ export default function App() {
       '#1D9E75': dark ? '#0B2B22' : '#E1F5EE',
       '#185FA5': dark ? '#0A1E35' : '#E6F1FB',
       '#534AB7': dark ? '#1C1945' : '#EEEDFE',
+      '#D4842A': dark ? '#2B1E0A' : '#FFF3E6',
     };
     const textMap = {
       '#1D9E75': dark ? '#5DCAA5' : '#085041',
       '#185FA5': dark ? '#85B7EB' : '#0C447C',
       '#534AB7': dark ? '#AFA9EC' : '#3C3489',
+      '#D4842A': dark ? '#E8A050' : '#8B5A1A',
     };
     return { bg: bgMap[color], text: textMap[color] };
   };
@@ -168,13 +201,6 @@ export default function App() {
 
         <View style={styles.quickActions}>
           <TouchableOpacity
-            style={[styles.actionBtn, { backgroundColor: dark ? '#1A3A2A' : '#E1F5EE' }]}
-            onPress={() => Linking.openURL('playmetrics://')}
-            activeOpacity={0.7}
-          >
-            <Text style={[styles.actionText, { color: '#1D9E75' }]}>Open PlayMetrics</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
             style={[styles.actionBtn, { backgroundColor: dark ? '#2C2C2E' : '#F2F2F7' }]}
             onPress={checkNewDrills}
             activeOpacity={0.7}
@@ -186,12 +212,48 @@ export default function App() {
         </View>
       </View>
 
-      <SessionScreen
-        key={activeTab}
-        session={TABS[activeTab].session}
-        storageKey={TABS[activeTab].key}
-        weekKey={weekKey}
-      />
+      {/* Drill sessions */}
+      {(TABS[activeTab].key === 'mon' || TABS[activeTab].key === 'wed') && (
+        <SessionScreen
+          key={activeTab}
+          session={TABS[activeTab].session}
+          storageKey={TABS[activeTab].key}
+          weekKey={weekKey}
+        />
+      )}
+
+      {/* PDFs tab */}
+      {TABS[activeTab].key === 'pdfs' && (
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 16 }}>
+          {DRILL_PDFS.length > 0 ? DRILL_PDFS.map((pdf, i) => (
+            <TouchableOpacity key={i} onPress={() => setBrowserUrl(pdf.url)}
+              style={[styles.pdfCard, { backgroundColor: dark ? '#1C1C1E' : '#fff', borderColor: dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)' }]}>
+              <Text style={{ fontSize: 15, fontWeight: '600', color: dark ? '#fff' : '#1C1C1E' }}>{pdf.name}</Text>
+              {pdf.drill && <Text style={{ fontSize: 12, color: dark ? '#8E8E93' : '#6C6C70', marginTop: 4 }}>{pdf.drill}</Text>}
+            </TouchableOpacity>
+          )) : (
+            <>
+              <Text style={{ fontSize: 14, color: dark ? '#8E8E93' : '#6C6C70', textAlign: 'center', marginTop: 40 }}>
+                Drill PDFs will appear here when received from weekly emails.
+              </Text>
+              <Text style={{ fontSize: 12, color: dark ? '#555' : '#999', textAlign: 'center', marginTop: 8 }}>
+                PDFs are automatically grabbed from Mauro's training session emails.
+              </Text>
+            </>
+          )}
+        </ScrollView>
+      )}
+
+      {/* PlayMetrics tab - opens in-app */}
+      {TABS[activeTab].key === 'pm' && (
+        <WebView
+          source={{ uri: 'https://app.playmetrics.com' }}
+          style={{ flex: 1 }}
+        />
+      )}
+
+      {/* In-app browser overlay for PDF links */}
+      {browserUrl && <InAppBrowser url={browserUrl} onClose={() => setBrowserUrl(null)} dark={dark} />}
     </SafeAreaView>
   );
 }
@@ -243,4 +305,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   actionText: { fontSize: 12, fontWeight: '600' },
+  pdfCard: {
+    padding: 16,
+    borderRadius: 12,
+    borderWidth: 0.5,
+    marginBottom: 8,
+  },
 });
