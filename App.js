@@ -228,11 +228,14 @@ export default function App() {
       {TABS[activeTab].key === 'pm' && (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
           <TouchableOpacity
-            onPress={() => Linking.openURL('https://apps.apple.com/us/app/playmetrics/id1450640824')}
+            onPress={() => {
+              // Universal link — iOS opens the app directly if installed
+              Linking.openURL('https://app.playmetrics.com');
+            }}
             style={{ paddingVertical: 16, paddingHorizontal: 40, borderRadius: 12, backgroundColor: '#1D9E75', marginBottom: 16 }}
             activeOpacity={0.7}
           >
-            <Text style={{ fontSize: 16, fontWeight: '700', color: '#fff' }}>Open PlayMetrics App</Text>
+            <Text style={{ fontSize: 16, fontWeight: '700', color: '#fff' }}>Open PlayMetrics</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => Linking.openURL('https://app.playmetrics.com')}
