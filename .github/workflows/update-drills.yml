@@ -107,6 +107,7 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         run: |
           chmod +x node_modules/expo/bin/cli
+          chmod +x node_modules/expo-updates/bin/cli.js
           chmod +x node_modules/react-native/sdks/hermesc/linux64-bin/hermesc
           chmod +x node_modules/react-native/sdks/hermesc/osx-bin/hermesc 2>/dev/null || true
 
