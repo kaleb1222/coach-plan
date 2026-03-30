@@ -103,10 +103,16 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Publish EAS Update
+      - name: Fix binary permissions
         if: steps.changes.outputs.changed == 'true'
         run: |
           chmod +x node_modules/expo/bin/cli
+          chmod +x node_modules/react-native/sdks/hermesc/linux64-bin/hermesc
+          chmod +x node_modules/react-native/sdks/hermesc/osx-bin/hermesc 2>/dev/null || true
+
+      - name: Publish EAS Update
+        if: steps.changes.outputs.changed == 'true'
+        run: |
           eas update --branch production --message "Weekly drill update — $(date +'%B %d, %Y')" --non-interactive
 
       - name: Summary
