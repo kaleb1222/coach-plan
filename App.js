@@ -74,9 +74,20 @@ try {
   if (drillsModule.DRILL_PDFS) DRILL_PDFS = drillsModule.DRILL_PDFS;
 } catch (e) {}
 
+const MOVE_VIDEOS = [
+  { name: 'Side-step',  url: 'https://www.youtube.com/watch?v=Gef176O7j38',  desc: 'Body feint to fake direction and explode past defender' },
+  { name: 'Scissors',   url: 'https://www.youtube.com/watch?v=IaVjCK_ExgI',  desc: 'Loop foot around the ball to fake outside, cut inside' },
+  { name: 'Step-over',  url: 'https://www.youtube.com/watch?v=S6HZq-BLZKQ',  desc: 'Step over the ball to trick defender, go opposite way' },
+  { name: 'Hook Turn',  url: 'https://www.youtube.com/watch?v=0oV-G4HP4ec',  desc: 'Use inside of foot to hook ball and reverse direction' },
+  { name: 'Drag-back',  url: 'https://www.youtube.com/watch?v=aWu1bo1BccM',  desc: 'Roll ball back with sole to escape pressure' },
+  { name: 'Pull-push',  url: 'https://www.youtube.com/watch?v=Kq8yGgtKwfI',  desc: 'Pull ball back then push sideways to change direction' },
+  { name: 'Pull-cut',   url: 'https://www.youtube.com/watch?v=LRSUw7mgqAY',  desc: 'Pull ball back and cut across body to beat defender' },
+];
+
 const TABS = [
   { key: 'mon',    label: 'Mon/Tue', session: MON_TUE },
   { key: 'wed',    label: 'Wed/Thu', session: WED_THU },
+  { key: 'videos', label: 'Videos' },
   { key: 'pdfs',   label: 'PDFs' },
   { key: 'pm',     label: 'PlayMetrics' },
 ];
@@ -116,6 +127,7 @@ export default function App() {
   const TAB_COLORS = {
     mon: '#185FA5',
     wed: '#534AB7',
+    videos: '#C94040',
     pdfs: '#D4842A',
     pm: '#1D9E75',
   };
@@ -133,12 +145,14 @@ export default function App() {
       '#1D9E75': dark ? '#0B2B22' : '#E1F5EE',
       '#185FA5': dark ? '#0A1E35' : '#E6F1FB',
       '#534AB7': dark ? '#1C1945' : '#EEEDFE',
+      '#C94040': dark ? '#2B0A0A' : '#FDE8E8',
       '#D4842A': dark ? '#2B1E0A' : '#FFF3E6',
     };
     const textMap = {
       '#1D9E75': dark ? '#5DCAA5' : '#085041',
       '#185FA5': dark ? '#85B7EB' : '#0C447C',
       '#534AB7': dark ? '#AFA9EC' : '#3C3489',
+      '#C94040': dark ? '#E88080' : '#8B1A1A',
       '#D4842A': dark ? '#E8A050' : '#8B5A1A',
     };
     return { bg: bgMap[color], text: textMap[color] };
@@ -200,6 +214,39 @@ export default function App() {
           storageKey={TABS[activeTab].key}
           weekKey={weekKey}
         />
+      )}
+
+      {/* Videos tab */}
+      {TABS[activeTab].key === 'videos' && (
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 16 }}>
+          <Text style={{ fontSize: 13, fontWeight: '600', color: dark ? '#8E8E93' : '#6C6C70', textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 12 }}>
+            Dribbling Move Tutorials
+          </Text>
+          {MOVE_VIDEOS.map((video, i) => (
+            <TouchableOpacity
+              key={i}
+              onPress={() => Linking.openURL(video.url)}
+              style={[styles.videoCard, {
+                backgroundColor: dark ? '#1C1C1E' : '#fff',
+                borderColor: dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)',
+              }]}
+              activeOpacity={0.7}
+            >
+              <View style={styles.videoRow}>
+                <View style={[styles.videoIcon, { backgroundColor: dark ? '#2B0A0A' : '#FDE8E8' }]}>
+                  <Text style={{ fontSize: 16 }}>▶</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={{ fontSize: 15, fontWeight: '600', color: dark ? '#fff' : '#1C1C1E' }}>{video.name}</Text>
+                  <Text style={{ fontSize: 12, color: dark ? '#8E8E93' : '#6C6C70', marginTop: 2 }}>{video.desc}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          ))}
+          <Text style={{ fontSize: 11, color: dark ? '#636366' : '#AEAEB2', textAlign: 'center', marginTop: 12 }}>
+            Opens in YouTube
+          </Text>
+        </ScrollView>
       )}
 
       {/* PDFs tab */}
@@ -280,7 +327,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
-  tabText: { fontSize: 13, fontWeight: '600' },
+  tabText: { fontSize: 12, fontWeight: '600' },
   quickActions: {
     flexDirection: 'row',
     paddingHorizontal: 14,
@@ -299,5 +346,23 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 0.5,
     marginBottom: 8,
+  },
+  videoCard: {
+    padding: 14,
+    borderRadius: 12,
+    borderWidth: 0.5,
+    marginBottom: 8,
+  },
+  videoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  videoIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
