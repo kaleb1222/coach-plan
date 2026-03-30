@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   View, Text, TouchableOpacity, ScrollView, StyleSheet, useColorScheme,
-  SafeAreaView, Animated, Dimensions,
+  SafeAreaView, Animated, Dimensions, Linking,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Updates from 'expo-updates';
-import WebView from 'react-native-webview';
 import SessionScreen from './src/SessionScreen';
 import { MON_TUE, WED_THU, WEEK_LABEL } from './src/drills';
 
@@ -68,23 +67,6 @@ function UpdateScreen() {
   );
 }
 
-// In-app browser overlay
-function InAppBrowser({ url, onClose, dark }) {
-  return (
-    <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 100, backgroundColor: dark ? '#000' : '#fff' }}>
-      <SafeAreaView style={{ flex: 1 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 8, borderBottomWidth: 0.5, borderBottomColor: dark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}>
-          <Text style={{ fontSize: 13, color: dark ? '#8E8E93' : '#6C6C70', flex: 1 }} numberOfLines={1}>{url}</Text>
-          <TouchableOpacity onPress={onClose} style={{ paddingLeft: 16, paddingVertical: 4 }}>
-            <Text style={{ fontSize: 15, fontWeight: '600', color: '#1D9E75' }}>Done</Text>
-          </TouchableOpacity>
-        </View>
-        <WebView source={{ uri: url }} style={{ flex: 1 }} />
-      </SafeAreaView>
-    </View>
-  );
-}
-
 // Try to get PDF list from drills module
 let DRILL_PDFS = [];
 try {
@@ -130,8 +112,6 @@ export default function App() {
     setRefreshing(false);
     setTimeout(() => setRefreshing(false), 2000);
   };
-
-  const [browserUrl, setBrowserUrl] = useState(null);
 
   const TAB_COLORS = {
     mon: '#185FA5',
@@ -226,7 +206,7 @@ export default function App() {
       {TABS[activeTab].key === 'pdfs' && (
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 16 }}>
           {DRILL_PDFS.length > 0 ? DRILL_PDFS.map((pdf, i) => (
-            <TouchableOpacity key={i} onPress={() => setBrowserUrl(pdf.url)}
+            <TouchableOpacity key={i} onPress={() => Linking.openURL(pdf.url)}
               style={[styles.pdfCard, { backgroundColor: dark ? '#1C1C1E' : '#fff', borderColor: dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)' }]}>
               <Text style={{ fontSize: 15, fontWeight: '600', color: dark ? '#fff' : '#1C1C1E' }}>{pdf.name}</Text>
               {pdf.drill && <Text style={{ fontSize: 12, color: dark ? '#8E8E93' : '#6C6C70', marginTop: 4 }}>{pdf.drill}</Text>}
@@ -244,16 +224,25 @@ export default function App() {
         </ScrollView>
       )}
 
-      {/* PlayMetrics tab - opens in-app */}
+      {/* PlayMetrics tab */}
       {TABS[activeTab].key === 'pm' && (
-        <WebView
-          source={{ uri: 'https://app.playmetrics.com' }}
-          style={{ flex: 1 }}
-        />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 }}>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('https://apps.apple.com/us/app/playmetrics/id1450640824')}
+            style={{ paddingVertical: 16, paddingHorizontal: 40, borderRadius: 12, backgroundColor: '#1D9E75', marginBottom: 16 }}
+            activeOpacity={0.7}
+          >
+            <Text style={{ fontSize: 16, fontWeight: '700', color: '#fff' }}>Open PlayMetrics App</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => Linking.openURL('https://app.playmetrics.com')}
+            style={{ paddingVertical: 12, paddingHorizontal: 30, borderRadius: 10, borderWidth: 1, borderColor: dark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)' }}
+            activeOpacity={0.7}
+          >
+            <Text style={{ fontSize: 14, fontWeight: '600', color: dark ? '#8E8E93' : '#6C6C70' }}>Open PlayMetrics Web</Text>
+          </TouchableOpacity>
+        </View>
       )}
-
-      {/* In-app browser overlay for PDF links */}
-      {browserUrl && <InAppBrowser url={browserUrl} onClose={() => setBrowserUrl(null)} dark={dark} />}
     </SafeAreaView>
   );
 }
