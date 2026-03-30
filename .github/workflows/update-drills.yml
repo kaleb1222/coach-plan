@@ -106,6 +106,7 @@ jobs:
       - name: Publish EAS Update
         if: steps.changes.outputs.changed == 'true'
         run: |
+          chmod +x node_modules/expo/bin/cli
           eas update --branch production --message "Weekly drill update — $(date +'%B %d, %Y')" --non-interactive
 
       - name: Summary
