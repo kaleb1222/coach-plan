@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   View, Text, TouchableOpacity, StyleSheet, useColorScheme,
-  SafeAreaView, Animated, Dimensions,
+  SafeAreaView, Animated, Dimensions, Linking,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as Updates from 'expo-updates';
 import SessionScreen from './src/SessionScreen';
-import { WARMUP, MON_TUE, WED_THU, WEEK_LABEL } from './src/drills';
+import { MON_TUE, WED_THU, WEEK_LABEL } from './src/drills';
 
 function UpdateScreen() {
   const [status, setStatus] = useState('checking');
@@ -68,7 +68,6 @@ function UpdateScreen() {
 }
 
 const TABS = [
-  { key: 'warmup', label: 'Warmup', session: WARMUP },
   { key: 'mon',    label: 'Mon/Tue', session: MON_TUE },
   { key: 'wed',    label: 'Wed/Thu', session: WED_THU },
 ];
@@ -87,8 +86,25 @@ export default function App() {
   const dark = scheme === 'dark';
   const weekKey = getWeekKey();
 
+  const [refreshing, setRefreshing] = useState(false);
+
+  const checkNewDrills = async () => {
+    setRefreshing(true);
+    try {
+      if (Updates.isEnabled) {
+        const update = await Updates.checkForUpdateAsync();
+        if (update.isAvailable) {
+          await Updates.fetchUpdateAsync();
+          Updates.reloadAsync();
+          return;
+        }
+      }
+    } catch (e) {}
+    setRefreshing(false);
+    setTimeout(() => setRefreshing(false), 2000);
+  };
+
   const TAB_COLORS = {
-    warmup: '#1D9E75',
     mon: '#185FA5',
     wed: '#534AB7',
   };
@@ -149,6 +165,25 @@ export default function App() {
             );
           })}
         </View>
+
+        <View style={styles.quickActions}>
+          <TouchableOpacity
+            style={[styles.actionBtn, { backgroundColor: dark ? '#1A3A2A' : '#E1F5EE' }]}
+            onPress={() => Linking.openURL('playmetrics://')}
+            activeOpacity={0.7}
+          >
+            <Text style={[styles.actionText, { color: '#1D9E75' }]}>Open PlayMetrics</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.actionBtn, { backgroundColor: dark ? '#2C2C2E' : '#F2F2F7' }]}
+            onPress={checkNewDrills}
+            activeOpacity={0.7}
+          >
+            <Text style={[styles.actionText, { color: dark ? '#8E8E93' : '#6C6C70' }]}>
+              {refreshing ? 'Checking...' : 'Check for New Drills'}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <SessionScreen
@@ -195,4 +230,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabText: { fontSize: 13, fontWeight: '600' },
+  quickActions: {
+    flexDirection: 'row',
+    paddingHorizontal: 14,
+    paddingTop: 8,
+    gap: 6,
+  },
+  actionBtn: {
+    flex: 1,
+    paddingVertical: 8,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  actionText: { fontSize: 12, fontWeight: '600' },
 });
