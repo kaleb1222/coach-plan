@@ -13,17 +13,17 @@ export const WARMUP = {
     {
       id: 'w1',
       name: 'Dynamic Movement Circuit',
-      summary: 'Hip openers · lateral bounds · bear crawls · inch worms',
-      detail: 'Set up 20-yard line. Players perform hip openers (leg swings front/back and side to side) for 30 seconds. Then lateral bounds across the line (jump side to side on one foot, then the other). Bear crawls for 10 yards (hands and feet only, keep hips low). Finish with inch worms - bend at waist, walk hands forward to plank position, walk feet up to hands. Repeat circuit 2-3 times.',
+      summary: 'Hip openers · lateral bounds · inch worms · backpedal',
+      detail: 'Set up a 20-yard line. Players perform: hip openers (leg swings forward/back and side to side), lateral bounds (jump side to side on one foot, then both feet), inch worms (walk hands out to plank, walk feet to hands), and backpedal with arm circles. Complete 2-3 rounds with 30 seconds rest between exercises.',
       points: [],
       badge: 'Injury prevention',
       pdfUrl: null,
     },
     {
       id: 'w2',
-      name: 'Hospital Tag (with ball)',
-      summary: 'Dribble in grid · tagged players hold \'injury\' · teammates heal them',
-      detail: 'Set up 25x25 yard grid. All players dribble with a ball. Choose 2-3 \'doctors\' (no balls). When doctors tag a player, that player must hold their ball and freeze while holding the body part that was \'injured\' (coach calls out - ankle, knee, shoulder, etc.). Tagged players can only be \'healed\' when a teammate with a ball dribbles over and touches them. Rotate doctors every 2 minutes. Emphasizes close control while helping teammates.',
+      name: 'Traffic Light Dribbling',
+      summary: 'Dribble freely · green/yellow/red commands · ball control',
+      detail: 'Players dribble freely in a 20x20 yard grid with their ball. Coach calls out colors: GREEN = dribble fast, YELLOW = slow dribbling with close touches, RED = stop with foot on ball. Add variations like specific body parts to stop the ball or different dribbling moves for each color.',
       points: [],
       badge: 'Ball mastery',
       pdfUrl: null,
@@ -33,7 +33,7 @@ export const WARMUP = {
 
 export const MON_TUE = {
   title: 'Monday / Tuesday',
-  subtitle: 'Passing and Receiving - Microcycle 2',
+  subtitle: 'Passing and receiving fundamentals',
   color: '#185FA5',
   drills: [
     {
@@ -48,8 +48,8 @@ export const MON_TUE = {
     {
       id: 'm2',
       name: '3v1 Possession Game',
-      summary: '3v1 possession with passing focus',
-      detail: '3v1 Possession Game focusing on maintaining possession and quick passing decisions.',
+      summary: '3v1 possession · Maintain control',
+      detail: '3v1 Possession Game',
       points: [],
       badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3v1-Possession-Game.pdf',
@@ -57,17 +57,17 @@ export const MON_TUE = {
     {
       id: 'm3',
       name: '3+1v1 Pass And Support',
-      summary: '3+1v1 with passing and support movement',
-      detail: '3+1v1 Pass And Support exercise focusing on passing combinations and player movement to provide support options.',
+      summary: '3+1v1 · Pass and support movement',
+      detail: '3+1v1 Pass And Support',
       points: [],
-      badge: 'Passing',
+      badge: '1v1 + passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3-1-V-1-Pass-And-Support.pdf',
     },
     {
       id: 'm4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 game with extra players · Large goals',
-      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game played with 2 large goals.',
+      summary: '2v2 game · Extra player support',
+      detail: 'Start 2v2 and the team with the ball can pass in an extra player',
       points: [],
       badge: 'Scrimmage',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M1-M1-.-Game-2-Large-Goals.pdf',
@@ -77,14 +77,14 @@ export const MON_TUE = {
 
 export const WED_THU = {
   title: 'Wednesday / Thursday',
-  subtitle: 'Passing and Receiving - Microcycle 2',
+  subtitle: 'Passing and receiving fundamentals',
   color: '#534AB7',
   drills: [
     {
       id: 'wt1',
       name: 'Passing & Receiving Warmup 2',
-      summary: 'Warmup with passing and receiving focus',
-      detail: 'Set up two or more areas so all players get lots of touches, no waiting in line. Focus on proper passing and receiving technique.',
+      summary: 'Passing warmup · Multiple areas setup',
+      detail: 'Set up two or more areas so all players get lots of touches, no waiting in line',
       points: [],
       badge: 'Passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Passing-Receiving-Warmup-2.pdf',
@@ -92,8 +92,8 @@ export const WED_THU = {
     {
       id: 'wt2',
       name: '3V1 Possession Game',
-      summary: '3v1 possession with passing focus',
-      detail: '3V1 Possession Game focusing on maintaining possession and quick passing decisions.',
+      summary: '3v1 possession · Maintain control',
+      detail: '3V1 Possession Game',
       points: [],
       badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3v1-Possession-Game.pdf',
@@ -101,17 +101,17 @@ export const WED_THU = {
     {
       id: 'wt3',
       name: '2v2 + 2 Target Players',
-      summary: '2v2 with target players for passing options',
-      detail: '2v2 + 2 Target Players exercise providing additional passing options and support play.',
+      summary: '2v2 with targets · Support play',
+      detail: '2v2 + 2 Target Players',
       points: [],
-      badge: 'Passing',
+      badge: 'Tactical',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M-2-Target-Players.pdf',
     },
     {
       id: 'wt4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 game with extra players · Large goals',
-      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game played with 2 large goals.',
+      summary: '2v2 game · Extra player support',
+      detail: 'Start 2v2 and the team with the ball can pass in an extra player',
       points: [],
       badge: 'Scrimmage',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M1-M1-.-Game-2-Large-Goals.pdf',
