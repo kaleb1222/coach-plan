@@ -3,7 +3,7 @@
 //  then run: eas build --platform ios --profile production
 // ─────────────────────────────────────────────
 
-export const WEEK_LABEL = 'Week of Apr 13';
+export const WEEK_LABEL = 'Week of Apr 13-16';
 
 export const WARMUP = {
   title: 'Warmup — Every Session',
@@ -13,17 +13,17 @@ export const WARMUP = {
     {
       id: 'w1',
       name: 'Dynamic Movement Circuit',
-      summary: 'Bear crawls · inch worms · lateral bounds · carioca',
-      detail: 'Set up a 20-yard line. Players perform bear crawls for 10 yards, then inch worms for 10 yards. Return with lateral bounds (5 each direction), then carioca (facing same direction, cross-over steps). Focus on controlled movements and proper form. Complete 2-3 rounds with walking recovery between exercises.',
+      summary: 'Frankenstein walks · lateral bounds · bear crawls',
+      detail: 'Set up 20-yard line. Players perform Frankenstein walks (straight leg kicks while walking), lateral bounds (side-to-side jumping), and bear crawls (hands and feet, crawling forward). Complete 2 rounds with 30-second rest between exercises.',
       points: [],
       badge: 'Injury prevention',
       pdfUrl: null,
     },
     {
       id: 'w2',
-      name: 'Musical Balls',
-      summary: 'Dribble to music · freeze when music stops',
-      detail: 'Each player has a ball in a 20x20 yard grid. Players dribble freely while music plays. When music stops, players must freeze with one foot on their ball. Last player to freeze does 5 toe taps. Vary the challenge: freeze in different positions (sitting on ball, ball between feet, etc.). Play 5-6 rounds with different freeze commands.',
+      name: 'Treasure Island',
+      summary: 'Dribble to collect cones · pirates try to steal treasure',
+      detail: 'Set up 30x30 yard grid with cones (treasure) scattered in center. Players are treasure hunters dribbling balls, trying to collect cones and bring them back to their home corner. 2-3 players are pirates (no ball) who try to steal treasure from hunters. If pirate tags a hunter, hunter must drop treasure and do 5 toe taps before continuing.',
       points: [],
       badge: 'Ball mastery',
       pdfUrl: null,
@@ -39,7 +39,7 @@ export const MON_TUE = {
     {
       id: 'm1',
       name: 'Pass Through Gates - Pairs',
-      summary: 'Pairs passing through gates · Focus on technique & body shape',
+      summary: 'Start with pairs passing through single gate · Focus on correct technique',
       detail: 'Start with the pairs passing through a single gate without dribbling to other gates. Focus on the correct technique and body shape - foot position, follow through, etc.',
       points: [],
       badge: 'Passing',
@@ -48,7 +48,7 @@ export const MON_TUE = {
     {
       id: 'm2',
       name: '3v1 Possession Game',
-      summary: 'Small-sided possession game',
+      summary: 'Possession focused practice · Small-sided game',
       detail: '3v1 Possession Game',
       points: [],
       badge: 'Possession',
@@ -57,7 +57,7 @@ export const MON_TUE = {
     {
       id: 'm3',
       name: '3+1v1 Pass And Support',
-      summary: 'Pass and support with overload',
+      summary: 'Pass and support with numerical advantage',
       detail: '3+1v1 Pass And Support',
       points: [],
       badge: '1v1 + passing',
@@ -83,7 +83,7 @@ export const WED_THU = {
     {
       id: 'wt1',
       name: 'Passing & Receiving Warmup 2',
-      summary: 'Set up multiple areas · Lots of touches, no waiting',
+      summary: 'Set up multiple areas · All players get lots of touches',
       detail: 'Set up two or more areas so all players get lots of touches, no waiting in line',
       points: [],
       badge: 'Passing',
@@ -92,7 +92,7 @@ export const WED_THU = {
     {
       id: 'wt2',
       name: '3V1 Possession Game',
-      summary: 'Small-sided possession game',
+      summary: 'Possession focused practice · Small-sided game',
       detail: '3V1 Possession Game',
       points: [],
       badge: 'Possession',
@@ -101,7 +101,7 @@ export const WED_THU = {
     {
       id: 'wt3',
       name: '2v2 + 2 Target Players',
-      summary: '2v2 with target players',
+      summary: 'Small-sided game with target players',
       detail: '2v2 + 2 Target Players',
       points: [],
       badge: 'Tactical',
