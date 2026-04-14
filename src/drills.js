@@ -13,17 +13,17 @@ export const WARMUP = {
     {
       id: 'w1',
       name: 'Dynamic Movement Circuit',
-      summary: 'Hip openers · lateral bounds · inch worms · backpedal',
-      detail: 'Set up a 20-yard course. Players perform hip openers (leg swings forward/back and side-to-side) for 10 yards, then lateral bounds (jumping sideways from foot to foot) for the next section. Follow with inch worms (walk hands out to plank, walk feet to hands) for 5 reps, then backpedal to the start. Complete 2 rounds with 30-second rest between.',
+      summary: 'Carioca · lateral bounds · inch worms · A-skips',
+      detail: 'Set up a 20-yard line. Players perform carioca (side shuffles crossing feet) down and back. Next, lateral bounds - explosive jumps side to side down the line. Then inch worms - walk hands out to plank, walk feet to hands. Finish with A-skips - high knee marching with opposite arm drive. Complete 2 rounds with 30 seconds rest between exercises.',
       points: [],
       badge: 'Injury prevention',
       pdfUrl: null,
     },
     {
       id: 'w2',
-      name: 'Hospital Tag (with ball)',
-      summary: 'Dribble while avoiding taggers · hold \'injured\' body part',
-      detail: 'All players dribble in a 30x20 yard grid. Start with 2-3 taggers (no balls). When tagged, players must hold the ball and place one hand on the body part where they were tagged (shoulder, knee, etc.) while continuing to dribble with their feet only. Tagged players can be \'healed\' by other players dribbling through their legs. Switch taggers every 2 minutes.',
+      name: 'Traffic Light Dribbling',
+      summary: 'Dribble freely · follow color commands · keep control',
+      detail: 'Each player with a ball in 20x20 grid. Players dribble freely while coach calls out colors: GREEN = dribble normally, YELLOW = slow dribbling with small touches, RED = stop and put foot on ball, BLUE = dribble backwards, PURPLE = sit on ball. Players must react quickly while maintaining ball control. Play for 3-4 minutes, mix up commands to keep players alert.',
       points: [],
       badge: 'Ball mastery',
       pdfUrl: null,
@@ -33,7 +33,7 @@ export const WARMUP = {
 
 export const MON_TUE = {
   title: 'Monday / Tuesday',
-  subtitle: 'Passing and receiving fundamentals',
+  subtitle: 'Passing And Receiving - Microcycle 2',
   color: '#185FA5',
   drills: [
     {
@@ -41,54 +41,34 @@ export const MON_TUE = {
       name: 'Pass Through Gates - Pairs',
       summary: 'Pairs passing through gates · Focus on technique',
       detail: 'Start with the pairs passing through a single gate without dribbling to other gates. Focus on the correct technique and body shape - foot position, follow through, etc.',
-      points: [
-        'Plant non-kicking foot side-by-side with ball',
-        'Turn knee and toes 90 degrees to the side',
-        'Contact with flat side of heel, not big toe',
-        'Push through ball with exaggerated follow-through'
-      ],
+      points: ['Plant non-kicking foot side-by-side with ball', 'Turn knee and toes 90 degrees to side', 'Contact with solid flat side of heel', 'Push through ball with follow-through'],
       badge: 'Passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Pass-Through-Gates-Pairs.pdf'
     },
     {
       id: 'm2',
       name: '3v1 Possession Game',
-      summary: 'Small sided possession · Apply passing technique',
-      detail: '3v1 Possession Game to practice passing and receiving under pressure.',
-      points: [
-        'Pop away to create time and space',
-        'Soft, short first touch',
-        'Turn on first touch every time',
-        'Pass to player with most time and space'
-      ],
+      summary: '3v1 possession · Cycle of possession focus',
+      detail: '3v1 Possession Game focusing on the cycle of possession: get open, good first touch, escape pressure, accurate pass.',
+      points: ['Pop away to create time and space', 'Soft, short 1st touch', 'Turn on 1st touch every time', 'Pass to player with most time and space'],
       badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3v1-Possession-Game.pdf'
     },
     {
       id: 'm3',
       name: '3+1v1 Pass And Support',
-      summary: 'Passing with support · Create passing options',
-      detail: '3+1v1 Pass And Support exercise to work on creating passing options and supporting teammates.',
-      points: [
-        'After passing move to space',
-        'Give teammates passing options',
-        'Face field of play when receiving',
-        'Take what defenders give you'
-      ],
+      summary: '3+1v1 passing · Support and movement',
+      detail: '3+1v1 Pass And Support exercise focusing on passing accuracy and player movement to support possession.',
+      points: ['After passing move to space', 'Face the field when receiving', 'Pass to feet unless runner makes cue', 'Take what defenders give you'],
       badge: '1v1 + passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3-1-V-1-Pass-And-Support.pdf'
     },
     {
       id: 'm4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 game · Team with ball can pass in extra player',
-      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game played to two large goals.',
-      points: [
-        'No one touch play - must take first touch',
-        'Cue to run is when player takes prep touch',
-        'Pass to feet unless runner is making run',
-        'Always be aware of what defenders give you'
-      ],
+      summary: '2v2 game · Extra player support',
+      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game with 2 large goals.',
+      points: ['No 1 touch play allowed', 'Emphasize cycle of possession', 'Cue to run when ball carrier takes prep touch', 'Attackers read what defenders give'],
       badge: 'Scrimmage',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M1-M1-.-Game-2-Large-Goals.pdf'
     }
@@ -97,62 +77,42 @@ export const MON_TUE = {
 
 export const WED_THU = {
   title: 'Wednesday / Thursday',
-  subtitle: 'Passing and receiving fundamentals',
+  subtitle: 'Passing And Receiving - Microcycle 2',
   color: '#534AB7',
   drills: [
     {
       id: 'wt1',
       name: 'Passing & Receiving Warmup 2',
-      summary: 'Warmup drill · Multiple areas for maximum touches',
+      summary: 'Passing warmup · Multiple areas setup',
       detail: 'Set up two or more areas so all players get lots of touches, no waiting in line. Focus on passing and receiving technique.',
-      points: [
-        'Toes pointing up when using inside of foot',
-        'Toe down when using outside of foot',
-        'Don\'t jab kicking foot down after pass',
-        'Turn body to face field when receiving'
-      ],
+      points: ['Toes pointing up when using inside of foot', 'Toe down when using outside of foot', 'Don\'t jab foot down when passing', 'Open body to face field when receiving'],
       badge: 'Passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Passing-Receiving-Warmup-2.pdf'
     },
     {
       id: 'wt2',
       name: '3V1 Possession Game',
-      summary: 'Small sided possession · Apply passing technique',
-      detail: '3V1 Possession Game to practice passing and receiving under pressure.',
-      points: [
-        'Pop away to create time and space',
-        'Soft, short first touch',
-        'Turn on first touch every time',
-        'Pass to player with most time and space'
-      ],
+      summary: '3v1 possession · Technical focus',
+      detail: '3V1 Possession Game with emphasis on technical execution of passing and receiving within the cycle of possession.',
+      points: ['Get open - pop away from defender', 'Good first touch to create space', 'Escape pressure by dribbling to space', 'Accurate pass to feet'],
       badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3v1-Possession-Game.pdf'
     },
     {
       id: 'wt3',
       name: '2v2 + 2 Target Players',
-      summary: '2v2 with target players · Practice passing options',
-      detail: '2v2 + 2 Target Players exercise to work on finding passing options and maintaining possession.',
-      points: [
-        'Use target players to maintain possession',
-        'Create time and space with first touch',
-        'Pass accurately to feet',
-        'Move after passing to support'
-      ],
-      badge: 'Possession',
+      summary: '2v2 with targets · Support play',
+      detail: '2v2 + 2 Target Players focusing on passing to target players and maintaining possession through proper technique.',
+      points: ['Pass must be on ground and sharp', 'No slow balls', 'Turn body to open up before receiving', 'Move to space after passing'],
+      badge: 'Tactical',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M-2-Target-Players.pdf'
     },
     {
       id: 'wt4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 game · Team with ball can pass in extra player',
-      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game played to two large goals.',
-      points: [
-        'No one touch play - must take first touch',
-        'Cue to run is when player takes prep touch',
-        'Pass to feet unless runner is making run',
-        'Always be aware of what defenders give you'
-      ],
+      summary: '2v2 game · Extra player support',
+      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game with 2 large goals.',
+      points: ['Start coaching points in warmup', 'Carry points throughout progression', 'Ball meets feet when passing to runner', 'Always be aware of defender options'],
       badge: 'Scrimmage',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M1-M1-.-Game-2-Large-Goals.pdf'
     }
