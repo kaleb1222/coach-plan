@@ -13,17 +13,17 @@ export const WARMUP = {
     {
       id: 'w1',
       name: 'Dynamic Movement Circuit',
-      summary: 'Inch worms · lateral bounds · carioca · bear crawls',
-      detail: 'Set up 20-yard line. Players start with inch worms - walk hands forward to plank, walk feet to hands. Then lateral bounds - explosive sideways jumps landing on one foot. Add carioca - crossover steps sideways with arms pumping. Finish with bear crawls - hands and feet only, crawl forward keeping knees off ground. Complete 2 rounds with 30-second rest between exercises.',
+      summary: 'Hip openers · lateral bounds · inch worms · backpedal',
+      detail: 'Set up a 20-yard course. Players perform hip openers (leg swings forward/back and side-to-side) for 10 yards, then lateral bounds (jumping sideways from foot to foot) for the next section. Follow with inch worms (walk hands out to plank, walk feet to hands) for 5 reps, then backpedal to the start. Complete 2 rounds with 30-second rest between.',
       points: [],
       badge: 'Injury prevention',
       pdfUrl: null,
     },
     {
       id: 'w2',
-      name: 'Traffic Light Dribbling',
-      summary: 'Dribble freely · follow color commands · stay in bounds',
-      detail: 'Each player with a ball in 20x20 yard grid. Green light = dribble fast, yellow light = dribble slow with small touches, red light = stop with foot on ball. Call out colors randomly every 10-15 seconds. Add variations like \'reverse\' (opposite direction) or \'freeze dance\' (creative pose when stopped). Players who go out of bounds or don\'t follow commands do 5 toe taps before rejoining.',
+      name: 'Hospital Tag (with ball)',
+      summary: 'Dribble while avoiding taggers · hold \'injured\' body part',
+      detail: 'All players dribble in a 30x20 yard grid. Start with 2-3 taggers (no balls). When tagged, players must hold the ball and place one hand on the body part where they were tagged (shoulder, knee, etc.) while continuing to dribble with their feet only. Tagged players can be \'healed\' by other players dribbling through their legs. Switch taggers every 2 minutes.',
       points: [],
       badge: 'Ball mastery',
       pdfUrl: null,
@@ -41,34 +41,54 @@ export const MON_TUE = {
       name: 'Pass Through Gates - Pairs',
       summary: 'Pairs passing through gates · Focus on technique',
       detail: 'Start with the pairs passing through a single gate without dribbling to other gates. Focus on the correct technique and body shape - foot position, follow through, etc.',
-      points: [],
+      points: [
+        'Plant non-kicking foot side-by-side with ball',
+        'Turn knee and toes 90 degrees to the side',
+        'Contact with flat side of heel, not big toe',
+        'Push through ball with exaggerated follow-through'
+      ],
       badge: 'Passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Pass-Through-Gates-Pairs.pdf'
     },
     {
       id: 'm2',
       name: '3v1 Possession Game',
-      summary: '3 attackers keep possession vs 1 defender',
-      detail: '3v1 Possession Game',
-      points: [],
+      summary: 'Small sided possession · Apply passing technique',
+      detail: '3v1 Possession Game to practice passing and receiving under pressure.',
+      points: [
+        'Pop away to create time and space',
+        'Soft, short first touch',
+        'Turn on first touch every time',
+        'Pass to player with most time and space'
+      ],
       badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3v1-Possession-Game.pdf'
     },
     {
       id: 'm3',
       name: '3+1v1 Pass And Support',
-      summary: '3 plus 1 neutral vs 1 defender · Pass and support',
-      detail: '3+1v1 Pass And Support',
-      points: [],
+      summary: 'Passing with support · Create passing options',
+      detail: '3+1v1 Pass And Support exercise to work on creating passing options and supporting teammates.',
+      points: [
+        'After passing move to space',
+        'Give teammates passing options',
+        'Face field of play when receiving',
+        'Take what defenders give you'
+      ],
       badge: '1v1 + passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3-1-V-1-Pass-And-Support.pdf'
     },
     {
       id: 'm4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 with extra player option · Two large goals',
-      detail: 'Start 2v2 and the team with the ball can pass in an extra player',
-      points: [],
+      summary: '2v2 game · Team with ball can pass in extra player',
+      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game played to two large goals.',
+      points: [
+        'No one touch play - must take first touch',
+        'Cue to run is when player takes prep touch',
+        'Pass to feet unless runner is making run',
+        'Always be aware of what defenders give you'
+      ],
       badge: 'Scrimmage',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M1-M1-.-Game-2-Large-Goals.pdf'
     }
@@ -83,36 +103,56 @@ export const WED_THU = {
     {
       id: 'wt1',
       name: 'Passing & Receiving Warmup 2',
-      summary: 'Passing warmup · Multiple areas · No waiting',
-      detail: 'Set up two or more areas so all players get lots of touches, no waiting in line',
-      points: [],
+      summary: 'Warmup drill · Multiple areas for maximum touches',
+      detail: 'Set up two or more areas so all players get lots of touches, no waiting in line. Focus on passing and receiving technique.',
+      points: [
+        'Toes pointing up when using inside of foot',
+        'Toe down when using outside of foot',
+        'Don\'t jab kicking foot down after pass',
+        'Turn body to face field when receiving'
+      ],
       badge: 'Passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Passing-Receiving-Warmup-2.pdf'
     },
     {
       id: 'wt2',
       name: '3V1 Possession Game',
-      summary: '3 attackers keep possession vs 1 defender',
-      detail: '3V1 Possession Game',
-      points: [],
+      summary: 'Small sided possession · Apply passing technique',
+      detail: '3V1 Possession Game to practice passing and receiving under pressure.',
+      points: [
+        'Pop away to create time and space',
+        'Soft, short first touch',
+        'Turn on first touch every time',
+        'Pass to player with most time and space'
+      ],
       badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3v1-Possession-Game.pdf'
     },
     {
       id: 'wt3',
       name: '2v2 + 2 Target Players',
-      summary: '2v2 with target players · Passing options',
-      detail: '2v2 + 2 Target Players',
-      points: [],
-      badge: 'Tactical',
+      summary: '2v2 with target players · Practice passing options',
+      detail: '2v2 + 2 Target Players exercise to work on finding passing options and maintaining possession.',
+      points: [
+        'Use target players to maintain possession',
+        'Create time and space with first touch',
+        'Pass accurately to feet',
+        'Move after passing to support'
+      ],
+      badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M-2-Target-Players.pdf'
     },
     {
       id: 'wt4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 with extra player option · Two large goals',
-      detail: 'Start 2v2 and the team with the ball can pass in an extra player',
-      points: [],
+      summary: '2v2 game · Team with ball can pass in extra player',
+      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game played to two large goals.',
+      points: [
+        'No one touch play - must take first touch',
+        'Cue to run is when player takes prep touch',
+        'Pass to feet unless runner is making run',
+        'Always be aware of what defenders give you'
+      ],
       badge: 'Scrimmage',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M1-M1-.-Game-2-Large-Goals.pdf'
     }
