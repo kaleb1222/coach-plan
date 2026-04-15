@@ -13,17 +13,17 @@ export const WARMUP = {
     {
       id: 'w1',
       name: 'Dynamic Movement Circuit',
-      summary: 'Bear crawls · lateral bounds · inch worms · carioca',
-      detail: 'Set up a 20-yard line. Players perform bear crawls for 10 yards, then lateral bounds (side to side jumps) for 10 yards. Return with inch worms (walk hands out to plank, walk feet to hands) for 10 yards, then carioca (crossover steps) for 10 yards. Repeat 2-3 times with 30-second rest between rounds.',
+      summary: 'Hip openers · inch worms · lateral bounds · carioca',
+      detail: 'Set up 20-yard line. Hip openers: step forward lifting knee to chest, rotate hip outward, step down and repeat (10 each leg). Inch worms: walk hands forward to plank, walk feet to hands (5 reps). Lateral bounds: bound sideways pushing off outside leg, land on opposite leg (10 each direction). Carioca: side shuffle crossing trailing leg in front then behind leading leg down and back.',
       points: [],
       badge: 'Injury prevention',
       pdfUrl: null,
     },
     {
       id: 'w2',
-      name: 'Musical Balls',
-      summary: 'Dribble around cones · when music stops, find a ball',
-      detail: 'Place cones randomly in a 30x30 yard area with one fewer ball than players at the cones. Players dribble around the area to music. When music stops, they must quickly dribble to a cone and stop their ball on top. The player without a ball does 5 jumping jacks, then all players continue. Remove one more ball each round.',
+      name: 'Hospital Tag (with ball)',
+      summary: 'Dribble in grid · tagged players hold \'injury\' · teammates heal',
+      detail: '20x20 yard grid. All players dribble their ball inside. 2-3 players are \'doctors\' (no ball, wear pinnies). When doctor tags a player, that player must hold the ball and freeze while holding the body part that was tagged (head, knee, shoulder, etc.). Other players can \'heal\' them by dribbling over and high-fiving. Rotate doctors every 2 minutes. Emphasize keeping ball close while helping teammates.',
       points: [],
       badge: 'Ball mastery',
       pdfUrl: null,
@@ -39,7 +39,7 @@ export const MON_TUE = {
     {
       id: 'm1',
       name: 'Pass Through Gates - Pairs',
-      summary: 'Pairs passing through gates · Focus technique · Body shape',
+      summary: 'Pairs passing through gates · Focus on technique',
       detail: 'Start with the pairs passing through a single gate without dribbling to other gates. Focus on the correct technique and body shape - foot position, follow through, etc.',
       points: [],
       badge: 'Passing',
@@ -48,7 +48,7 @@ export const MON_TUE = {
     {
       id: 'm2',
       name: '3v1 Possession Game',
-      summary: '3 attackers vs 1 defender · Keep possession',
+      summary: '3 players keep possession against 1 defender',
       detail: '3v1 Possession Game',
       points: [],
       badge: 'Possession',
@@ -57,7 +57,7 @@ export const MON_TUE = {
     {
       id: 'm3',
       name: '3+1v1 Pass And Support',
-      summary: '3+1 players vs 1 · Pass and support movement',
+      summary: '3 players plus 1 support against 1 defender',
       detail: '3+1v1 Pass And Support',
       points: [],
       badge: '1v1 + passing',
@@ -66,7 +66,7 @@ export const MON_TUE = {
     {
       id: 'm4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 with extra players · Game with large goals',
+      summary: '2v2 with extra player support · Two large goals',
       detail: 'Start 2v2 and the team with the ball can pass in an extra player',
       points: [],
       badge: 'Scrimmage',
@@ -77,13 +77,13 @@ export const MON_TUE = {
 
 export const WED_THU = {
   title: 'Wednesday / Thursday',
-  subtitle: 'Passing and receiving progression',
+  subtitle: 'Passing and receiving fundamentals',
   color: '#534AB7',
   drills: [
     {
       id: 'wt1',
       name: 'Passing & Receiving Warmup 2',
-      summary: 'Warmup with lots of touches · No waiting in line',
+      summary: 'Technical warmup · Multiple areas for activity',
       detail: 'Set up two or more areas so all players get lots of touches, no waiting in line',
       points: [],
       badge: 'Passing',
@@ -92,7 +92,7 @@ export const WED_THU = {
     {
       id: 'wt2',
       name: '3V1 Possession Game',
-      summary: '3 attackers vs 1 defender · Keep possession',
+      summary: '3 players keep possession against 1 defender',
       detail: '3V1 Possession Game',
       points: [],
       badge: 'Possession',
@@ -101,16 +101,16 @@ export const WED_THU = {
     {
       id: 'wt3',
       name: '2v2 + 2 Target Players',
-      summary: '2v2 with target players · Support play',
+      summary: '2v2 with target player support · Passing options',
       detail: '2v2 + 2 Target Players',
       points: [],
-      badge: 'Attack & defend',
+      badge: 'Tactical',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M-2-Target-Players.pdf'
     },
     {
       id: 'wt4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 with extra players · Game with large goals',
+      summary: '2v2 with extra player support · Two large goals',
       detail: 'Start 2v2 and the team with the ball can pass in an extra player',
       points: [],
       badge: 'Scrimmage',
