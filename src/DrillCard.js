@@ -1,11 +1,15 @@
 import React, { useState, useRef } from 'react';
 import {
-  View, Text, TouchableOpacity, Animated, StyleSheet, useColorScheme, Linking,
+  View, Text, TouchableOpacity, Animated, StyleSheet, useColorScheme, Modal,
+  SafeAreaView, ActivityIndicator, Dimensions,
 } from 'react-native';
+import { WebView } from 'react-native-webview';
 import * as Haptics from 'expo-haptics';
 
 export default function DrillCard({ drill, index, accentColor, badgeBg, badgeText }) {
   const [open, setOpen] = useState(false);
+  const [pdfVisible, setPdfVisible] = useState(false);
+  const [pdfLoading, setPdfLoading] = useState(true);
   const anim = useRef(new Animated.Value(0)).current;
   const scheme = useColorScheme();
   const dark = scheme === 'dark';
@@ -19,7 +23,8 @@ export default function DrillCard({ drill, index, accentColor, badgeBg, badgeTex
 
   const openPdf = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    Linking.openURL(drill.pdfUrl);
+    setPdfLoading(true);
+    setPdfVisible(true);
   };
 
   const rotate = anim.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '90deg'] });
@@ -58,11 +63,36 @@ export default function DrillCard({ drill, index, accentColor, badgeBg, badgeTex
             </View>
             {drill.pdfUrl && (
               <TouchableOpacity onPress={openPdf} style={[styles.pdfBtn, { backgroundColor: badgeBg }]} activeOpacity={0.7}>
-                <Text style={[styles.pdfBtnText, { color: badgeText }]}>📄 View Diagram</Text>
+                <Text style={[styles.pdfBtnText, { color: badgeText }]}>View Diagram</Text>
               </TouchableOpacity>
             )}
           </View>
         </View>
+      )}
+
+      {drill.pdfUrl && (
+        <Modal visible={pdfVisible} animationType="slide" presentationStyle="pageSheet">
+          <SafeAreaView style={[styles.modalContainer, { backgroundColor: dark ? '#000' : '#F2F2F7' }]}>
+            <View style={[styles.modalHeader, { backgroundColor: dark ? '#1C1C1E' : '#fff', borderBottomColor: dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.1)' }]}>
+              <Text style={[styles.modalTitle, { color: dark ? '#fff' : '#1C1C1E' }]} numberOfLines={1}>{drill.name}</Text>
+              <TouchableOpacity onPress={() => setPdfVisible(false)} style={[styles.closeBtn, { backgroundColor: dark ? '#2C2C2E' : '#E5E5EA' }]} activeOpacity={0.7}>
+                <Text style={[styles.closeBtnText, { color: dark ? '#fff' : '#1C1C1E' }]}>Done</Text>
+              </TouchableOpacity>
+            </View>
+            {pdfLoading && (
+              <View style={styles.loadingOverlay}>
+                <ActivityIndicator size="large" color={accentColor} />
+                <Text style={{ color: dark ? '#8E8E93' : '#6C6C70', marginTop: 10, fontSize: 14 }}>Loading diagram...</Text>
+              </View>
+            )}
+            <WebView
+              source={{ uri: 'https://docs.google.com/gview?embedded=true&url=' + encodeURIComponent(drill.pdfUrl) }}
+              style={{ flex: 1, backgroundColor: dark ? '#000' : '#F2F2F7' }}
+              onLoadEnd={() => setPdfLoading(false)}
+              startInLoadingState={false}
+            />
+          </SafeAreaView>
+        </Modal>
       )}
     </View>
   );
@@ -123,4 +153,26 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   pdfBtnText: { fontSize: 11, fontWeight: '600', letterSpacing: 0.2 },
+  modalContainer: { flex: 1 },
+  modalHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 0.5,
+  },
+  modalTitle: { fontSize: 16, fontWeight: '600', flex: 1, marginRight: 12 },
+  closeBtn: { paddingHorizontal: 16, paddingVertical: 8, borderRadius: 20 },
+  closeBtnText: { fontSize: 15, fontWeight: '600' },
+  loadingOverlay: {
+    position: 'absolute',
+    top: 60,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1,
+  },
 });
