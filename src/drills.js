@@ -13,17 +13,17 @@ export const WARMUP = {
     {
       id: 'w1',
       name: 'Dynamic Movement Circuit',
-      summary: 'Bear crawls · inch worms · hip openers · backpedal',
-      detail: 'Set up a 20-yard line. Players start with bear crawls for 10 yards (hands and feet, hips up). At halfway point, transition to inch worms - hands walk forward into plank, then feet walk to hands. Continue with hip openers (leg swings forward/back and side to side). Finish with backpedal to starting line. Repeat 2-3 times, focusing on controlled movements and proper form.',
+      summary: 'Hip openers · lateral bounds · inch worms',
+      detail: 'Set up 20-yard line. Hip openers: face sideways, lift knee across body and step out wide (10 each leg). Lateral bounds: explosive side-to-side jumps, landing softly (10 each direction). Inch worms: walk hands out to plank, walk feet to hands, repeat down the line. Focus on controlled movements and proper form.',
       points: [],
       badge: 'Injury prevention',
       pdfUrl: null,
     },
     {
       id: 'w2',
-      name: 'Traffic Light Dribbling',
-      summary: 'Dribble in grid · react to color commands',
-      detail: 'All players dribble freely in a 20x20 yard grid with their ball. Coach calls out colors: GREEN = dribble fast, YELLOW = dribble slowly with small touches, RED = stop and put foot on ball. Add variations like BLUE = sit on ball, PURPLE = juggle the ball. Keep players moving and reacting quickly. Play for 3-4 minutes, calling colors every 10-15 seconds.',
+      name: 'Treasure Island',
+      summary: 'Dribble around islands · collect treasure cones',
+      detail: 'Set up 30x20 yard area with cones as \'islands\' scattered throughout. Place small cones (treasure) around each island. Players dribble around collecting treasure without touching the islands. When all treasure is collected from an island, that island sinks (remove it). Last island standing wins! Emphasize close control and awareness.',
       points: [],
       badge: 'Ball mastery',
       pdfUrl: null,
@@ -33,7 +33,7 @@ export const WARMUP = {
 
 export const MON_TUE = {
   title: 'Monday / Tuesday',
-  subtitle: 'Passing and receiving fundamentals',
+  subtitle: 'Passing And Receiving - Microcycle 2',
   color: '#185FA5',
   drills: [
     {
@@ -41,54 +41,34 @@ export const MON_TUE = {
       name: 'Pass Through Gates - Pairs',
       summary: 'Pairs passing through gates · Focus on technique & body shape',
       detail: 'Start with the pairs passing through a single gate without dribbling to other gates. Focus on the correct technique and body shape - foot position, follow through, etc.',
-      points: [
-        'Plant non-kicking foot side-by-side with ball',
-        'Turn knee and toes 90 degrees, point toe up',
-        'Contact with solid flat side of heel only',
-        'Push through ball with exaggerated follow-through'
-      ],
+      points: ['Plant non-kicking foot side-by-side with ball', 'Turn knee and toes of kicking foot to side at 90 degrees', 'Point toe up', 'Make contact with solid flat side of heel', 'Push through ball with exaggerated follow-through'],
       badge: 'Passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Pass-Through-Gates-Pairs.pdf'
     },
     {
       id: 'm2',
       name: '3v1 Possession Game',
-      summary: 'Small sided possession · Cycle of possession focus',
-      detail: '3v1 possession game focusing on the cycle of possession: get open, good first touch, escape pressure, accurate pass.',
-      points: [
-        'Pop away to create time and space',
-        'Soft, short first touch turning away from pressure',
-        'Escape pressure by dribbling to space',
-        'Pass to feet - ground passes only'
-      ],
+      summary: '3v1 possession · Focus on passing & receiving fundamentals',
+      detail: '3v1 Possession Game focusing on the cycle of possession and passing/receiving technique.',
+      points: ['Pop away to create time and space', 'Soft, short first touch', 'Turn on first touch every time', 'Accurate pass to feet', 'Pass to player with most time and space'],
       badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3v1-Possession-Game.pdf'
     },
     {
       id: 'm3',
       name: '3+1v1 Pass And Support',
-      summary: '3+1v1 passing support · Movement after pass',
-      detail: '3+1v1 Pass And Support exercise emphasizing passing and supporting movement.',
-      points: [
-        'After passing move to space for passing options',
-        'Open body to face field of play',
-        'Pass to player with most time and space',
-        'Never allow 1 touch play at this stage'
-      ],
+      summary: '3+1v1 · Pass and support with numerical advantage',
+      detail: '3+1v1 Pass And Support exercise focusing on supporting the player with the ball.',
+      points: ['Get open - pop away from defender', 'Good first touch turning away from pressure', 'After passing move to space to give options', 'Pass to player with most time and space'],
       badge: '1v1 + passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3-1-V-1-Pass-And-Support.pdf'
     },
     {
       id: 'm4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 game with extra players · Start 2v2 then add support',
-      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game with 2 large goals.',
-      points: [
-        'Take what defenders give you',
-        'Make run when ball carrier takes prep touch',
-        'Pass when runner starts run',
-        'Always be aware of defensive options'
-      ],
+      summary: '2v2 game · Team with ball can pass in extra player',
+      detail: '2v2+1+1. Game 2 Large Goals - Start 2v2 and the team with the ball can pass in an extra player.',
+      points: ['No one-touch play allowed', 'Focus on cycle of possession', 'Take what defenders give you', 'Pass to feet unless runner is making a run'],
       badge: 'Scrimmage',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M1-M1-.-Game-2-Large-Goals.pdf'
     }
@@ -97,62 +77,42 @@ export const MON_TUE = {
 
 export const WED_THU = {
   title: 'Wednesday / Thursday',
-  subtitle: 'Passing and receiving progression',
+  subtitle: 'Passing And Receiving - Microcycle 2',
   color: '#534AB7',
   drills: [
     {
       id: 'wt1',
       name: 'Passing & Receiving Warmup 2',
-      summary: 'Technical warmup · Multiple areas for active touches',
-      detail: 'Set up two or more areas so all players get lots of touches, no waiting in line. Focus on passing and receiving technique.',
-      points: [
-        'Toes up when using inside of foot',
-        'Toe down when using outside of foot',
-        'Don\'t jab kicking foot down after pass',
-        'Swing kicking leg up through the ball'
-      ],
+      summary: 'Passing & receiving warmup · Set up multiple areas',
+      detail: 'Passing & Receiving Warmup 2 - set up two or more areas so all players get lots of touches, no waiting in line.',
+      points: ['Plant non-kicking foot side-by-side with ball', 'Turn knee and toes at 90 degrees, toe up', 'Soft, short first touch', 'Turn on first touch every time', 'Push through ball with follow-through'],
       badge: 'Passing',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/Passing-Receiving-Warmup-2.pdf'
     },
     {
       id: 'wt2',
       name: '3V1 Possession Game',
-      summary: 'Small sided possession · Cycle of possession focus',
-      detail: '3v1 possession game focusing on the cycle of possession: get open, good first touch, escape pressure, accurate pass.',
-      points: [
-        'Pop away to create time and space',
-        'Soft, short first touch turning away from pressure',
-        'Escape pressure by dribbling to space',
-        'Pass to feet - ground passes only'
-      ],
+      summary: '3v1 possession · Focus on passing & receiving cycle',
+      detail: '3V1 Possession Game focusing on the cycle of possession and passing/receiving technique.',
+      points: ['Pop away to create time and space', 'Good first touch turning away from pressure', 'Escape pressure by dribbling to space', 'Accurate pass to feet', 'Pass to player with most time and space'],
       badge: 'Possession',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/3v1-Possession-Game.pdf'
     },
     {
       id: 'wt3',
       name: '2v2 + 2 Target Players',
-      summary: '2v2 with target players · Passing options & support',
-      detail: '2v2 game with 2 target players providing additional passing options and support.',
-      points: [
-        'Use target players to maintain possession',
-        'Create passing lanes to targets',
-        'Move after passing to support',
-        'Pass meets runner\'s feet when passing to space'
-      ],
+      summary: '2v2 with target players · Focus on finding support',
+      detail: '2v2 + 2 Target Players exercise focusing on finding and using target players for support.',
+      points: ['Before receiving, pop away and open body to face field', 'Turn on first touch to create time and space', 'After passing move to space to give options', 'Use target players to maintain possession'],
       badge: 'Tactical',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M-2-Target-Players.pdf'
     },
     {
       id: 'wt4',
       name: '2v2+1+1. Game 2 Large Goals',
-      summary: '2v2 game with extra players · Start 2v2 then add support',
-      detail: 'Start 2v2 and the team with the ball can pass in an extra player. Game with 2 large goals.',
-      points: [
-        'Take what defenders give you',
-        'Make run when ball carrier takes prep touch',
-        'Pass when runner starts run',
-        'Always be aware of defensive options'
-      ],
+      summary: '2v2 game · Team with ball can pass in extra player',
+      detail: '2v2+1+1. Game 2 Large Goals - Start 2v2 and the team with the ball can pass in an extra player.',
+      points: ['No one-touch play allowed', 'Cue to run is when player takes preparation touch and looks up', 'Cue to pass is when runner starts run', 'Always be aware what options defenders give you'],
       badge: 'Scrimmage',
       pdfUrl: 'https://raw.githubusercontent.com/kaleb1222/coach-plan/main/pdfs/2v2-M1-M1-.-Game-2-Large-Goals.pdf'
     }
